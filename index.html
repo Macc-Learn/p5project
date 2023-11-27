@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <title>North Star Dance</title>
   <style>
     body {
       margin: 0;
@@ -11,14 +12,16 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background-color: #3d3d6b
+      background-color: #1b3c5b
     }
   </style>
+
   <script>
     let angle = 0;
     let starSize = 50;
     let width = 0;
     let height = 0;
+    let bgColor = "#3d3d6b";
 
     function setup() {
       width = window.innerWidth;
@@ -27,7 +30,7 @@
     }
 
     function draw() {
-      background("#3d3d6b");
+      background(bgColor);
 
       // set the origin point in thr middle
       translate(width / 2, height / 2);
@@ -52,6 +55,7 @@
     // use the p5 function to react to the mouse movement events
     function mouseMoved() {
       angle = (mouseX/mouseY);
+      starSize = (mouseY - 10);
     }
 
   </script>
