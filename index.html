@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #3d3d6b
+    }
+  </style>
+  <script>
+    let angle = 0;
+    let starSize = 50;
+    let width = 0;
+    let height = 0;
+
+    function setup() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      createCanvas(width, height);
+    }
+
+    function draw() {
+      background("#3d3d6b");
+
+      // set the origin point in thr middle
+      translate(width / 2, height / 2);
+
+      rotate(angle);
+      buildStar(starSize)
+    }
+
+    function buildStar(size) {
+      // loop makes 4 triangles trying to imitate a star
+      for(let i = 0; i < 4; i++){
+
+        // Draw the triangle
+        const halfSize = (size/2);
+        triangle(-halfSize, -halfSize, 0, -(size+40), halfSize, -halfSize);
+
+        // Rotate 90 degrees
+        rotate(PI/2);
+      }
+    }
+
+    // use the p5 function to react to the mouse movement events
+    function mouseMoved() {
+      angle = (mouseX/mouseY);
+    }
+
+  </script>
+</head>
+<body>
+</body>
+</html>
